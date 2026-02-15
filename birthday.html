@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Proposal & Birthday 🎉</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      text-align: center;
+      font-family: 'Brush Script MT', cursive;
+      overflow-x: hidden;
+    }
+
+    /* Proposal Page */
+    #proposal {
+      font-size: 40px;
+      color: #b30059;
+      margin-top: 80px;
+    }
+    button {
+      padding: 12px 25px;
+      background-color: #ff6699;
+      border: none;
+      border-radius: 8px;
+      font-size: 20px;
+      cursor: pointer;
+      margin: 10px;
+      position: absolute;
+    }
+    #yesBtn {
+      left: 40%;
+      top: 60%;
+      transition: transform 0.3s ease;
+    }
+    #noBtn {
+      left: 55%;
+      top: 60%;
+    }
+    #plead {
+      margin-top: 20px;
+      font-size: 22px;
+      color: #660033;
+      font-weight: bold;
+    }
+
+    /* Birthday Page */
+    #bigTitle {
+      font-size: 70px;
+      color: #ff0066;
+      margin-top: 50px;
+      animation: slideDown 2s ease forwards;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-100px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    #birthdayMsg {
+      max-width: 700px;
+      margin: 40px auto;
+      font-size: 22px;
+      line-height: 1.8;
+      color: #2c003e;
+      opacity: 0;
+      animation: fadeIn 3s ease forwards;
+      animation-delay: 2s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    #animals, #dance {
+      display: none;
+      margin-top: 20px;
+    }
+    #animals img {
+      margin: 10px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Proposal Page -->
+  <div id="proposalPage">
+    <h1 id="proposal">Will you accept my proposal? 💍</h1>
+    <div id="plead"></div>
+    <button id="yesBtn">Yes ❤️</button>
+    <button id="noBtn">No 🙈</button>
+  </div>
+
+  <!-- Birthday Page -->
+  <div id="birthdayPage" style="display:none;">
+    <h1 id="bigTitle">🎉 Happy Birthday Motu 🎉</h1>
+    <div id="birthdayMsg">
+      Hey my Motu, wishing you a very, very happy birthday! Today you turned 23, and I’m still 22 — but you know what, you’re still my Butki. Age doesn’t matter, get it?  
+      May God bless you with all the love in the world, and may you keep smiling like this always. Your smile makes me happier than anything else.  
+      Even though we’re not celebrating together right now, one day I’ll be the very first person to wish you in person, and I’ll give you a warm hug and a kiss too.  
+      Enjoy your day, Motu. I love you always. 💖
+    </div>
+
+    <div id="animals">
+      <img src="https://media.tenor.com/0zYwXcFZfWcAAAAC/dancing-panda.gif" width="150">
+      <img src="https://media.tenor.com/2vQkzYwYwWcAAAAC/dancing-elephant.gif" width="180">
+      <img src="https://media.tenor.com/3zYwXcFZfWcAAAAC/dancing-teddy.gif" width="150">
+    </div>
+
+    <div id="dance">
+      <img src="https://media.tenor.com/2vQkzYwYwWcAAAAC/couple-dancing.gif" width="300">
+    </div>
+  </div>
+
+  <!-- Music -->
+  <audio id="music" autoplay loop>
+    <source src="sari-ki-sari2.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const plead = document.getElementById("plead");
+    const proposalPage = document.getElementById("proposalPage");
+    const birthdayPage = document.getElementById("birthdayPage");
+    const animals = document.getElementById("animals");
+    const dance = document.getElementById("dance");
+    const music = document.getElementById("music");
+
+    const pleadMessages = [
+      "Please accept it 🙏",
+      "Bacche ki jaan logi? 😢",
+      "Man bhi jao 💕",
+      "Motu please please 🥺",
+      "Are you serious? 😳",
+      "Abhi gussa ayega 😡",
+      "Yes click karo 😍",
+      "Please baba 🙏",
+      "I will give chocolate 🍫",
+      "Okay 2 chocolates 🍫🍫",
+      "Okay 3 chocolates 🍫🍫🍫",
+      "Motu, bas kar ab 😭",
+      "Dil tod dogi kya? 💔",
+      "Mera pyaar accept karo 💖"
+    ];
+    let pleadIndex = 0;
+
+    // Runaway No button
+    noBtn.addEventListener("mouseover", () => {
+      noBtn.style.left = Math.random() * 80 + "%";
+      noBtn.style.top = Math.random() * 80 + "%";
+      plead.innerText = pleadMessages[pleadIndex % pleadMessages.length];
+      pleadIndex++;
+      yesBtn.style.transform = "scale(" + (1 + pleadIndex * 0.2) + ")";
+    });
+
+    // When Yes is clicked
+    yesBtn.addEventListener("click", () => {
+      proposalPage.style.display = "none";
+      birthdayPage.style.display = "block";
+      music.play();
+
+      setTimeout(() => {
+        animals.style.display = "block";
+        dance.style.display = "block";
+        setInterval(() => {
+          confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+          });
+        }, 2000);
+      }, 4000);
+    });
+  </script>
+</body>
+</html>
