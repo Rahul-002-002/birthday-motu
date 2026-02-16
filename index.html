@@ -120,7 +120,7 @@
   </div>
 
   <!-- Music -->
-  <audio id="music" autoplay loop>
+  <audio id="music" loop>
     <source src="Saari Ki Saari 2.mp3" type="audio/mpeg">
   </audio>
 
@@ -167,7 +167,11 @@
     yesBtn.addEventListener("click", () => {
       proposalPage.style.display = "none";
       birthdayPage.style.display = "block";
-      music.play();
+
+      // Play music only after user interaction
+      music.play().catch(error => {
+        console.log("Autoplay blocked, user must click again:", error);
+      });
 
       setTimeout(() => {
         animals.style.display = "block";
