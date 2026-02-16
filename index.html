@@ -6,7 +6,7 @@
     body {
       background: linear-gradient(to right, #ffdde1, #ee9ca7);
       text-align: center;
-      font-family: 'Brush Script MT', cursive;
+      font-family: Arial, sans-serif; /* block style for all text */
       overflow-x: hidden;
     }
 
@@ -15,6 +15,7 @@
       font-size: 40px;
       color: #b30059;
       margin-top: 80px;
+      font-family: 'Brush Script MT', cursive; /* keep proposal cursive */
     }
     button {
       padding: 12px 25px;
@@ -36,10 +37,17 @@
       top: 60%;
     }
     #plead {
-      margin-top: 20px;
-      font-size: 22px;
+      position: absolute;
+      left: 40%;   /* same horizontal position as Yes button */
+      top: 70%;    /* just below Yes button */
+      font-size: 20px;
       color: #660033;
       font-weight: bold;
+      font-family: Arial, sans-serif; /* block style font */
+      background: #fff3f7;
+      padding: 8px 12px;
+      border-radius: 6px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
     }
 
     /* Birthday Page */
@@ -95,7 +103,7 @@
       Hey my Motu, wishing you a very, very happy birthday! Today you turned 23, and I’m still 22 — but you know what, you’re still my Butki. Age doesn’t matter, get it?  
       May God bless you with all the love in the world, and may you keep smiling like this always. Your smile makes me happier than anything else.  
       Even though we’re not celebrating together right now, one day I’ll be the very first person to wish you in person, and I’ll give you a warm hug and a kiss too.  
-      Enjoy your day, Motu. I know you miss me and I also miss you a lot my jaan. I will try bring more happiness in your life. wish you a very very birthday again motu. I love you always. 💖
+      Enjoy your day, Motu. I know you miss me and I also miss you a lot my jaan. I will try bring more happiness in your life. Wish you a very very happy birthday again motu. I love you always. 💖
     </div>
 
     <div id="animals">
@@ -104,14 +112,14 @@
       <img src="https://media.tenor.com/3zYwXcFZfWcAAAAC/dancing-teddy.gif" width="150">
     </div>
 
-    <div id="dance"style="text-align:center; margin-top:-50px;">
+    <div id="dance" style="text-align:center; margin-top:-50px;">
       <img src="couple.gif" width="300">
     </div>
   </div>
 
   <!-- Music -->
   <audio id="music" autoplay loop>
-    <source src="Saari Ki Saari 2.mp3.mp3" type="audio/mpeg">
+    <source src="Saari Ki Saari 2.mp3" type="audio/mpeg">
   </audio>
 
   <!-- Confetti -->
@@ -174,6 +182,3 @@
   </script>
 </body>
 </html>
-
-
-
