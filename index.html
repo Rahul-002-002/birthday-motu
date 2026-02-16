@@ -31,6 +31,7 @@
       left: 40%;
       top: 60%;
       transition: transform 0.3s ease;
+      z-index: 1; /* button stays below plead text */
     }
     #noBtn {
       left: 55%;
@@ -41,13 +42,14 @@
       left: 40%;   /* same horizontal position as Yes button */
       top: 70%;    /* just below Yes button */
       font-size: 20px;
-      color: #660033;
+      color: #ffffff; /* white text */
       font-weight: bold;
       font-family: Arial, sans-serif; /* block style font */
-      background: #fff3f7;
-      padding: 8px 12px;
+      background: #b30059; /* deep pink background */
+      padding: 10px 14px;
       border-radius: 6px;
       box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+      z-index: 999; /* ensures it stays above the Yes button */
     }
 
     /* Birthday Page */
